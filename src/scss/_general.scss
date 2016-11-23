@@ -14,11 +14,16 @@ h1 {
 
 .section {
     @include card-basic();
+
     max-width: 700px;
 
     > h1 {
         margin: 16px;
         text-align: center;
         font-weight: 400;
+    }
+
+    &.with-min-height {
+        min-height: 150px;
     }
 }

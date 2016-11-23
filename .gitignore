@@ -1,3 +1,8 @@
-/node-modules/
-/bower-components/
+# Vendors
+/node_modules/
+/bower_components/
 /vendor/
+
+# Store
+/store/*
+!/store/sample-posts.json

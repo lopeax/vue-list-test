@@ -4,8 +4,11 @@ Vue.component('blog-post', {
         <li class="list-item" v-bind:class="{ active: isActive }">
             <span class="list-item-wrapper" v-on:click="activate">
                 <span class="image"><span class="zekken-logo"></span></span>
-                <span class="author">{{ post.author }}</span>
-                <span class="content">{{ post.content }}</span>
+                <span class="content">{{ trimmedContent }}</span>
+                <span class="meta">
+                    <span class="author">{{ post.author }}</span>
+                    <span class="date">{{ formattedDate }}</span>         
+                </span>
             </span>
             <span class="controls">
                 <span class="control favourite" v-bind:class="{ favourited: isFavourite, loading: isFavouriting }" v-on:click="favourited"></span>
@@ -31,12 +34,22 @@ Vue.component('blog-post', {
             this.isFavourite = !this.isFavourite;
             this.isFavouriting = !this.isFavouriting;
         }
+    },
+    computed: {
+        trimmedContent: function () {
+            return this.post.content.substring(0, 120) + '...';
+        },
+        formattedDate: function(){
+            return moment(this.post.date).fromNow()
+        }
     }
 });
 
-let app = new Vue({
-    el: '#app',
-    data: {
-        posts: data
-    }
+Helper.getJson('store/posts.json', function(data){
+    Helper.loaded(document.getElementById('app-loader'), function(){
+        let app = new Vue({
+            el: '#app',
+            data: data
+        });
+    });
 });

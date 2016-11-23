@@ -5,21 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet">
-        <link href="build/app.css" rel="stylesheet">
+        <link href="build/css/app.css" rel="stylesheet">
     </head>
     <body>
         <div id="app">
             <div class="section">
                 <h1>This is a VueJS test on lists</h1>
             </div>
-            <div class="section">
+            <div class="section with-min-height">
+                <div class="loader" id="app-loader"></div>
                 <ul class="list">
                     <blog-post v-for="post in posts" v-bind:post="post"></blog-post>
                 </ul>
             </div>
         </div>
 
-        <script src="https://unpkg.com/vue@2.0.8/dist/vue.js"></script>
-        <script src="build/app.js"></script>
+        <script src="build/js/lib/app.min.js"></script>
+        <script src="build/js/app.min.js"></script>
     </body>
 </html>

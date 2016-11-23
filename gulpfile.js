@@ -7,9 +7,11 @@ var sourcemaps = require('gulp-sourcemaps');
 var runSequence = require('run-sequence');
 var plumber = require('gulp-plumber');
 var util = require('gulp-util');
+var sass = require('gulp-sass');
 
 var src = 'src';
 var dest = 'build';
+var bower = 'bower_components';
 
 var myPlumber = function() {
     return plumber({
@@ -20,28 +22,67 @@ var myPlumber = function() {
     });
 };
 
+gulp.task('clean:css', function() {
+    return del(dest + "/css");
+});
+
+gulp.task('css', ['clean:css'], function(){
+    return gulp.src(src + '/scss/app.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({
+            includePaths: [
+                src + '/scss'
+            ],
+            outputStyle: 'compressed',
+            sourceMap: true
+        })).on('error', sass.logError)
+        .pipe(myPlumber())
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(dest + '/css'))
+});
+
 gulp.task('clean:js', function() {
     return del(dest + "/js");
 });
 
-gulp.task('js', ['clean:js'], function() {
+gulp.task('js', ['js-lib', 'clean:js'], function() {
     return gulp.src([
-        src + '/*.es6'
+        src + '/js/Helper/Helper.es6',
+        src + '/js/*.es6'
     ], {
         base: '.'
     }).pipe(babel())
         .pipe(myPlumber())
         .pipe(sourcemaps.init())
-        .pipe(concat('app.js'))
+        .pipe(concat('app.min.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(dest));
+        .pipe(gulp.dest(dest + '/js'));
 });
 
-gulp.task('build', ['js']);
+gulp.task('clean:js-lib', function() {
+    return del(dest + "/js/lib");
+});
+
+gulp.task('js-lib', ['clean:js-lib'], function() {
+    return gulp.src([
+        bower + '/vue/dist/vue.min.js',
+        bower + '/moment/min/moment.min.js'
+    ], {
+        base: '.'
+    }).pipe(myPlumber())
+        .pipe(sourcemaps.init())
+        .pipe(concat('app.min.js'))
+        .pipe(uglify())
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(dest + '/js/lib'));
+});
+
+gulp.task('build', ['css', 'js']);
 
 gulp.task('watch', function() {
-    return gulp.watch(src + '/**', ['js']);
+    gulp.watch(src + '/scss/**', ['css']);
+    return gulp.watch(src + '/js/**', ['js']);
 });
 
 gulp.task('default', function (cb) {
