@@ -1,0 +1,18 @@
+@mixin card($wrapspacing, $itemspacing, $bg, $colour){
+    position: relative;
+    width: calc(100% - #{$wrapspacing * 2});
+    margin: $wrapspacing auto;
+    background: $bg;
+    color: $colour;
+    padding: $itemspacing;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+    transition: background 0.3s;
+}
+
+@mixin card-basic(){
+    @include card(16px, 16px, #fff, #333);
+}
+
+@mixin card-white($wrapspacing, $itemspacing){
+    @include card($wrapspacing, $itemspacing, #fff, #333);
+}

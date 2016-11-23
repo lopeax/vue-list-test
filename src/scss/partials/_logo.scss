@@ -1,0 +1,119 @@
+$size: 4px;
+$color: #0c8;
+
+@keyframes invade {
+    50% {
+        box-shadow: ($size * 2)  ($size * 0) 0 0 $color, /* FIRST ROW */
+                ($size * 3)  ($size * 1) 0 0 $color,
+                ($size * 7)  ($size * 1) 0 0 $color,
+                ($size * 8)  ($size * 0) 0 0 $color,
+                ($size * 2)  ($size * 2) 0 0 $color, /* SECOND ROW */
+                ($size * 3)  ($size * 2) 0 0 $color,
+                ($size * 4)  ($size * 2) 0 0 $color,
+                ($size * 5)  ($size * 2) 0 0 $color,
+                ($size * 6)  ($size * 2) 0 0 $color,
+                ($size * 7)  ($size * 2) 0 0 $color,
+                ($size * 8)  ($size * 2) 0 0 $color,
+                ($size * 1)  ($size * 3) 0 0 $color, /* THIRD ROW */
+                ($size * 2)  ($size * 3) 0 0 $color,
+                ($size * 4)  ($size * 3) 0 0 $color,
+                ($size * 5)  ($size * 3) 0 0 $color,
+                ($size * 6)  ($size * 3) 0 0 $color,
+                ($size * 8)  ($size * 3) 0 0 $color,
+                ($size * 9)  ($size * 3) 0 0 $color,
+                ($size * 0)  ($size * 3) 0 0 $color, /* FOURTH ROW */
+                ($size * 1)  ($size * 4) 0 0 $color,
+                ($size * 2)  ($size * 4) 0 0 $color,
+                ($size * 3)  ($size * 4) 0 0 $color,
+                ($size * 4)  ($size * 4) 0 0 $color,
+                ($size * 5)  ($size * 4) 0 0 $color,
+                ($size * 6)  ($size * 4) 0 0 $color,
+                ($size * 7)  ($size * 4) 0 0 $color,
+                ($size * 8)  ($size * 4) 0 0 $color,
+                ($size * 9)  ($size * 4) 0 0 $color,
+                ($size * 10) ($size * 3) 0 0 $color,
+                ($size * 0)  ($size * 2) 0 0 $color, /* FIFTH ROW */
+                ($size * 2)  ($size * 5) 0 0 $color,
+                ($size * 3)  ($size * 5) 0 0 $color,
+                ($size * 4)  ($size * 5) 0 0 $color,
+                ($size * 5)  ($size * 5) 0 0 $color,
+                ($size * 6)  ($size * 5) 0 0 $color,
+                ($size * 7)  ($size * 5) 0 0 $color,
+                ($size * 8)  ($size * 5) 0 0 $color,
+                ($size * 10) ($size * 2) 0 0 $color,
+                ($size * 0)  ($size * 1) 0 0 $color, /* SIXTH ROW */
+                ($size * 3)  ($size * 6) 0 0 $color,
+                ($size * 7)  ($size * 6) 0 0 $color,
+                ($size * 10) ($size * 1) 0 0 $color,
+                ($size * 2)  ($size * 7) 0 0 $color, /* SEVENTH ROW*/
+                ($size * 2)  ($size * 7) 0 0 $color,
+                ($size * 8)  ($size * 7) 0 0 $color,
+                ($size * 8)  ($size * 7) 0 0 $color;
+    }
+}
+
+.zekken-logo {
+    position: relative;
+    height: $size * 8;
+    width: $size * 11;
+    margin: 0 auto;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: $size;
+        width: $size;
+        box-shadow: ($size * 2)  ($size * 0) 0 0 $color, /* ANTENNA */
+                ($size * 3)  ($size * 1) 0 0 $color,
+                ($size * 7)  ($size * 1) 0 0 $color,
+                ($size * 8)  ($size * 0) 0 0 $color,
+                ($size * 2)  ($size * 2) 0 0 $color, /* THIRD ROW */
+                ($size * 3)  ($size * 2) 0 0 $color,
+                ($size * 4)  ($size * 2) 0 0 $color,
+                ($size * 5)  ($size * 2) 0 0 $color,
+                ($size * 6)  ($size * 2) 0 0 $color,
+                ($size * 7)  ($size * 2) 0 0 $color,
+                ($size * 8)  ($size * 2) 0 0 $color,
+                ($size * 1)  ($size * 3) 0 0 $color, /* FOURTH ROW */
+                ($size * 2)  ($size * 3) 0 0 $color,
+                ($size * 4)  ($size * 3) 0 0 $color,
+                ($size * 5)  ($size * 3) 0 0 $color,
+                ($size * 6)  ($size * 3) 0 0 $color,
+                ($size * 8)  ($size * 3) 0 0 $color,
+                ($size * 9)  ($size * 3) 0 0 $color,
+                ($size * 0)  ($size * 4) 0 0 $color, /* FIFTH ROW */
+                ($size * 1)  ($size * 4) 0 0 $color,
+                ($size * 2)  ($size * 4) 0 0 $color,
+                ($size * 3)  ($size * 4) 0 0 $color,
+                ($size * 4)  ($size * 4) 0 0 $color,
+                ($size * 5)  ($size * 4) 0 0 $color,
+                ($size * 6)  ($size * 4) 0 0 $color,
+                ($size * 7)  ($size * 4) 0 0 $color,
+                ($size * 8)  ($size * 4) 0 0 $color,
+                ($size * 9)  ($size * 4) 0 0 $color,
+                ($size * 10) ($size * 4) 0 0 $color,
+                ($size * 0)  ($size * 5) 0 0 $color, /* SIXTH ROW */
+                ($size * 2)  ($size * 5) 0 0 $color,
+                ($size * 3)  ($size * 5) 0 0 $color,
+                ($size * 4)  ($size * 5) 0 0 $color,
+                ($size * 5)  ($size * 5) 0 0 $color,
+                ($size * 6)  ($size * 5) 0 0 $color,
+                ($size * 7)  ($size * 5) 0 0 $color,
+                ($size * 8)  ($size * 5) 0 0 $color,
+                ($size * 10) ($size * 5) 0 0 $color,
+                ($size * 0)  ($size * 6) 0 0 $color, /* SEVENTH ROW */
+                ($size * 2)  ($size * 6) 0 0 $color,
+                ($size * 8)  ($size * 6) 0 0 $color,
+                ($size * 10) ($size * 6) 0 0 $color,
+                ($size * 3)  ($size * 7) 0 0 $color, /* EIGHTH ROW*/
+                ($size * 4)  ($size * 7) 0 0 $color,
+                ($size * 6)  ($size * 7) 0 0 $color,
+                ($size * 7)  ($size * 7) 0 0 $color;
+        -webkit-transition: color 0.3s;
+        transition: color 0.3s;
+        animation: invade 1s linear infinite;
+        will-change: box-shadow;
+    }
+}
