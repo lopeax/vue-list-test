@@ -1,7 +1,7 @@
 Vue.component('blog-post', {
     props: ['post'],
     template: `
-        <li class="list-item" v-bind:class="{ active: isActive }">
+        <div class="list-item" v-bind:class="{ active: isActive }">
             <span class="list-item-wrapper" v-on:click="activate">
                 <span class="image"><span class="zekken-logo"></span></span>
                 <span class="content">{{ trimmedContent }}</span>
@@ -14,7 +14,7 @@ Vue.component('blog-post', {
                 <span class="control favourite" v-bind:class="{ favourited: isFavourite, loading: isFavouriting }" v-on:click="favourited"></span>
                 <span class="control remove" v-on:click="deactivate"></span>
             </span>
-        </li>
+        </div>
     `,
     data: function(){
         return {
@@ -45,7 +45,7 @@ Vue.component('blog-post', {
     }
 });
 
-Helper.getJson('store/posts.json', function(data){
+Helper.getJson('store/sample-posts.json', function(data){
     Helper.loaded(document.getElementById('app-loader'), function(){
         let app = new Vue({
             el: '#app',

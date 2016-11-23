@@ -12,11 +12,9 @@
             <div class="section">
                 <h1>This is a VueJS test on lists</h1>
             </div>
-            <div class="section with-min-height">
+            <div class="section list with-min-height">
                 <div class="loader" id="app-loader"></div>
-                <ul class="list">
-                    <blog-post v-for="post in posts" v-bind:post="post"></blog-post>
-                </ul>
+                <blog-post v-for="post in posts" v-bind:post="post"></blog-post>
             </div>
         </div>
 

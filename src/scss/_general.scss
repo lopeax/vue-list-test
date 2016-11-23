@@ -27,3 +27,12 @@ h1 {
         min-height: 150px;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .section {
+        width: 100%;
+        box-shadow: none;
+        border-bottom: 2px solid #aaa;
+        margin: 0 auto 8px auto;
+    }
+}

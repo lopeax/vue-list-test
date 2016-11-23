@@ -1,11 +1,9 @@
 .list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     overflow: hidden;
+    padding: 0;
 
     .list-item {
-        @include card-white(8px, 16px);
+        @include card-white(16px, 16px);
         @include select-none();
 
         cursor: pointer;
@@ -18,7 +16,7 @@
         }
 
         &.active {
-            transform: translate3d(-58px, 0, 0);
+            transform: translate3d(-64px, 0, 0);
         }
 
         .list-item-wrapper {
@@ -76,6 +74,50 @@
 
             .date {
                 text-transform: capitalize;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .list {
+        border-bottom: 0;
+
+        .list-item {
+            margin-top: 0;
+            margin-bottom: 0;
+            width: 100%;
+            box-shadow: none;
+
+            &.active {
+                transform: translate3d(-54px, 0, 0);
+            }
+
+            .list-item-wrapper {
+                border-bottom: 2px solid #CFCFCF;
+                height: 108px;
+            }
+
+            .controls {
+                left: 100%;
+                border-left: 2px solid #CFCFCF;
+                width: 52px;
+
+                .control {
+                    box-shadow: none;
+                    width: 52px;
+                    height: 54px;
+                    margin: 0;
+                    border-bottom: 2px solid #CFCFCF;
+
+                    &:before {
+                        line-height: 52px;
+                    }
+
+                    &:after {
+                        animation: control-ajax-mobile 2.5s cubic-bezier(0.2, 0, 0.2, 0.95) infinite;
+                    }
+                }
             }
         }
     }
