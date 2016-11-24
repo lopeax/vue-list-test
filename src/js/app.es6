@@ -11,7 +11,7 @@ Vue.component('blog-post', {
                 </span>
             </span>
             <span class="controls">
-                <span class="control favourite" v-bind:class="{ favourited: isFavourite, loading: isFavouriting }" v-on:click="favourited"></span>
+                <span class="control favourite" v-bind:class="{ favourited: isFavourite, loading: isFavouriting }" v-on:click="favourite"></span>
                 <span class="control remove" v-on:click="deactivate"></span>
             </span>
         </div>
@@ -30,7 +30,7 @@ Vue.component('blog-post', {
         deactivate: function(){
             this.isActive = false;
         },
-        favourited: function(){
+        favourite: function(){
             this.isFavourite = !this.isFavourite;
             this.isFavouriting = !this.isFavouriting;
         }
